@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # A Bash script that sets up your web servers for the deployment of web_static
-if ! which nginx > /dev/null 2>&1; then
+if ! which nginx; then
   sudo apt-get update
   sudo apt-get upgrade -y
   sudo apt-get install -y nginx
 fi
 
-sudo mkdir -p /data/web_static/shared
+sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
 
 HTML_CONTENT=\
