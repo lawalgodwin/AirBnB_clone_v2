@@ -10,8 +10,7 @@ sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
 
 HTML_CONTENT=\
-"
-<html>
+"<html>
   <head>
   </head>
   <body>
