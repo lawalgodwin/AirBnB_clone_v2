@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def do_pack():
-    """A function that compresses the files before sending"""
+    """ A script that generates archive the contents of web_static folder"""
 
     now = datetime.now()
     year = now.year
