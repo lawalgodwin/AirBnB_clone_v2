@@ -19,4 +19,4 @@ def do_pack():
     archive_name = "web_static_{}{}{}{}{}{}.tgz".format(
         year, month, day, hour, minute, second)
 
-    return f'versions/{archive_name}'
+    return 'versions/{}'.formart(archive_name)
