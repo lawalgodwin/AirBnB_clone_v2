@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # A Bash script that sets up your web servers for the deployment of web_static
-if ! which nginx; then
+if [[ ! $(which nginx > /dev/null 2>&1) ]]; then
   sudo apt-get update
   sudo apt-get upgrade -y
   sudo apt-get install -y nginx
