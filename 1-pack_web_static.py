@@ -6,10 +6,11 @@
    The function do_pack must return the archive path if the
    archive has been correctly generated. Otherwise, it should return None
 """
-from fabric.api import local
+from fabric.api import local, task
 from datetime import datetime
 
 
+@task
 def do_pack():
     """A function that compresses the files before sending"""
 
