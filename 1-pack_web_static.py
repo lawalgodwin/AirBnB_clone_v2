@@ -8,10 +8,3 @@ def do_pack():
     """ A function that compresses the files before sending"""
 
     now = datetime.now()
-    archive_name = f"web_static_{year}{month}{day}{hour}{minute}{second}.tgz"
-    local('mkdir -p versions')
-    try:
-        local(f'tar -cvzf versions/{archive_name} web_static')
-        return f'versions/{archive_name}'
-    except Exception as e:
-        return None
