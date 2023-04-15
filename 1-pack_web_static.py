@@ -22,7 +22,6 @@ def do_pack():
     try:
         local(f'tar -cvzf versions/{archive_name} web_static')
         size = os.stat(archive_name).st_size
-        print(f"web_static packed: versions/{archive_name} -> {size} Bytes")
     except Exception as e:
         return None
 
