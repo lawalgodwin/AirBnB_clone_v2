@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """Compress before sending
    All files in the folder web_static must be added to the final archive
    Store all archives in the folder versions(create if it doesn’t exist)
@@ -9,11 +8,10 @@
 """
 from fabric.api import local
 from datetime import datetime
-import os.path
 
 
 def do_pack():
-    """Compress the files before sending"""
+    """A function that compresses the files before sending"""
     now = datetime.now()
     year = now.year
     month = now.month
