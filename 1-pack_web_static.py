@@ -12,6 +12,7 @@ from datetime import datetime
 
 def do_pack():
     """A function that compresses the files before sending"""
+
     now = datetime.now()
     year = now.year
     month = now.month
