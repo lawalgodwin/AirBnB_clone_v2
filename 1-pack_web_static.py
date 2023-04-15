@@ -14,3 +14,5 @@ def do_pack():
     hour = now.hour
     minute = now.minute
     second = now.second
+    archive_name = f"web_static_{year}{month}{day}{hour}{minute}{second}.tgz"
+    local('mkdir -p versions')
