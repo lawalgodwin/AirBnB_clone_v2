@@ -7,7 +7,6 @@ from datetime import datetime
 def do_pack():
     """ A function that compresses the files before sending"""
 
-    archive_name = f"web_static_{year}{month}{day}{hour}{minute}{second}.tgz"
     now = datetime.now()
     year = now.year
     month = now.month
@@ -16,3 +15,5 @@ def do_pack():
     minute = now.minute
     second = now.second
     local('mkdir -p versions')
+    archive_name = "web_static_{}{}{}{}{}{}.tgz".format(
+        year, month, day, hour, minute, second)
