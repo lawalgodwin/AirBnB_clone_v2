@@ -2,6 +2,7 @@
 
 from fabric.api import local
 from datetime import datetime
+import os
 
 
 def do_pack():
@@ -17,3 +18,12 @@ def do_pack():
     local('mkdir -p versions')
     archive_name = "web_static_{}{}{}{}{}{}.tgz".format(
         year, month, day, hour, minute, second)
+
+    try:
+        local(f'tar -cvzf versions/{archive_name} web_static')
+        size = os.stat(archive_name).st_size
+        print(f"web_static packed: versions/{archive_name} -> {size} Bytes")
+    except Exception as e:
+        return None
+
+    return f'versions/{archive_name}'
