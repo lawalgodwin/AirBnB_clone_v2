@@ -9,16 +9,13 @@ fi
 sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
 
-HTML=\
-"<html>
+echo "<html>
   <head>
   </head>
   <body>
     Holberton School
   </body>
-</html>"
-
-echo "${HTML}" | sudo tee /data/web_static/releases/test/index.html
+</html>" | sudo tee /data/web_static/releases/test/index.html
 
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 
