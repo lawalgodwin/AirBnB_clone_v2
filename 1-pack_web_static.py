@@ -1,4 +1,4 @@
-#!/urs/bin/python3
+#!/usr/bin/python3
 
 """Compress before sending
    All files in the folder web_static must be added to the final archive
