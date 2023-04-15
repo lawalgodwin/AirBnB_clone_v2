@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""A module that compresses files before sending
+"""
+A module that compresses files before sending
    All files in the folder web_static must be added to the final archive
    Store all archives in the folder versions(create if it doesn’t exist)
    Create archives like web_static_<year><month><day><hour><minute><second>.tgz
