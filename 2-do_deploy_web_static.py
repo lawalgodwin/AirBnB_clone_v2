@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """A module that archives and deploy to the server"""
 
-from fabric.api import local, run, env, put, get, cd
+from fabric.api import local, run, env, put, sudo
 from datetime import datetime
 import os.path
 
@@ -49,14 +49,16 @@ def do_deploy(archive_path):
         # Create a new the symbolic link /data/web_static/current on the
         # web server, linked to the new version of your code
         # (/data/web_static/releases/<archive filename without extension>)
-        server_data_point = "/data/web_static/releases"
-        run('mv /{0}/{1}/web_static/* /{0}/{1}/'
+        server_data_point = "data/web_static/releases"
+        sudo('mv /{0}/{1}/web_static/* /{0}/{1}/'
+             .format(server_data_point, basename.split('.')[0]))
+        sudo('rm -rf /data/web_static/releases/{}/web_static'
+             .format(basename.split('.')[0]))
+        run('sudo mkdir -p /data/web_static/current')
+        run('sudo rm -rf /data/web_static/current')
+        run('sudo mkdir -p /data/web_static/current')
+        run('sudo ln -sf /{0}/{1}/* /data/web_static/current/'
             .format(server_data_point, basename.split('.')[0]))
-        run('rm -rf /data/web_static/releases/{}/web_static'
-            .format(basename.split('.')[0]))
-        run('rm -rf /data/web_static/current/')
-        run('ln -s /data/web_static/releases/{}/* /data/web_static/current/'
-            .format(basename.split('.')[0]))
         return True
     except Exception as e:
         print("Error: ", e)
