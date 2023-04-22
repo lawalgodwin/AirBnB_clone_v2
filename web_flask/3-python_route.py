@@ -29,7 +29,7 @@ def handle_cText(text):
 
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def handle_pythonText(text='is fun'):
+def handle_pythonText(text='is cool'):
     """Handle request to the python/text route"""
     return "Python {}".format(text.replace('_', ' '))
 
