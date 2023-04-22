@@ -24,7 +24,7 @@ def handle_hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def handle_cText(text):
     """Handle request to /c/{variable}"""
-    return f"C {text.replace('_', ' ')}"
+    return "C {}".format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
