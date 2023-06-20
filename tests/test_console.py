@@ -69,7 +69,7 @@ class TestConsole(unittest.TestCase):
         with patch('sys.stdout', self.output):
             self.cli.onecmd("quit")
         output = self.output.getvalue().strip()
-        self.assertEqual(output, "Exiting...")
+        self.assertEqual(output, "Exiting....")
 
 
 if __name__ == '__main__':
