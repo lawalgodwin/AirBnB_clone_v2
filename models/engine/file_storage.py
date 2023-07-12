@@ -8,9 +8,17 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-    def all(self):
+    def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
-        return FileStorage.__objects
+        all_objects = FileStorage.__objects
+        target_objects = {}
+        if cls:
+            for k, v in all_objects.items():
+                class_name = k.split(".")[0]
+                if (class_name == cls.__name__):
+                    target_objects.update({k: v})
+            return target_objects
+        return all_objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -48,3 +56,10 @@ class FileStorage:
                     self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
+
+    def delete(self, obj=None):
+        """Deletes the specified obj"""
+        if obj:
+            key = f'{type(obj).__name__}.{obj.id}'
+            del self.all()[key]
+            self.save()
