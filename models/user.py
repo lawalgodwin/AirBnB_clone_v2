@@ -12,9 +12,9 @@ class User(BaseModel, Base):
     if storage_type == "db":
         __tablename__ = 'users'
         email = Column(String(128), nullable=False)
-        password = Column(String(128), nullable=False)
-        first_name = Column(String(128), nullable=False)
-        last_name = Column(String(128), nullable=False)
+        password = Column(String(128), nullable=False, default='')
+        first_name = Column(String(128), default='')
+        last_name = Column(String(128), default='')
         places = relationship(
                               'Place',
                               backref='user',
